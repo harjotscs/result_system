@@ -391,7 +391,7 @@ h6,
     /* background-image:url("assets/img/try.jpg"); */
     background-size: cover;
     background-repeat: no-repeat;
-    background-image: url("/img/5251.jpg");
+    background-image: url("/assets/img/5251.jpg");
     background-attachment: fixed;
     border-bottom: 2px solid #fcebe3;
     margin: 72px 0 -72px 0;
@@ -406,7 +406,7 @@ h6,
     background-size: cover;
     background-repeat: no-repeat;
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-      url("/img/mob.jpg");
+      url("/assets/img/mob.jpg");
     background-attachment: fixed;
     border-bottom: 2px solid #fcebe3;
     margin: 72px 0 -72px 0;
