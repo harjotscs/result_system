@@ -391,7 +391,7 @@ h6,
     /* background-image:url("assets/img/try.jpg"); */
     background-size: cover;
     background-repeat: no-repeat;
-    background-image: url("../img/5251.jpg");
+    background-image: url("/img/5251.jpg");
     background-attachment: fixed;
     border-bottom: 2px solid #fcebe3;
     margin: 72px 0 -72px 0;
@@ -406,7 +406,7 @@ h6,
     background-size: cover;
     background-repeat: no-repeat;
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-      url("../img/mob.jpg");
+      url("/img/mob.jpg");
     background-attachment: fixed;
     border-bottom: 2px solid #fcebe3;
     margin: 72px 0 -72px 0;
@@ -1418,11 +1418,7 @@ section {
 }
 #contact {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-<<<<<<< HEAD
-    url("../../cont.jpg");
-=======
     url("/img/cont.jpg");
->>>>>>> d02211448eac7d07224db3541b40cac80b44a6be
   background-size: cover;
   background-attachment: fixed;
 }
