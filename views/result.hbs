@@ -190,7 +190,6 @@ z-index: 999999;
     <th rowspan = "3" style="font-size:14px">SUBJECTS</th>
     {{!-- <th colspan="2" style="font-size:14px">UNIT TEST</th> --}}
     <th colspan="4" style="font-size:14px">MARKS</th>
-    <th rowspan="3" style="font-size:14px">GRAND TOTAL</th>
   <tr>
   <tr>
     <th colspan="2">Max. Marks</th>
@@ -206,7 +205,7 @@ z-index: 999999;
     <td colspan="2">{{marks_obtained}}</td>
     {{!-- <td>20</td>
     <td>17</td> --}}
-    <td>-</td>
+    
     {{#if max_total}}
     <input type="hidden" id="max_total" value="{{max_total}}" name="">
     <input type="hidden" id="max_obtained" value="{{max_obtained}}" name="">
@@ -220,11 +219,11 @@ z-index: 999999;
     <td colspan="2" id="set_max_obtained"></td>
     {{!-- <td>20</td>
     <td>17</td> --}}
-    <td>-</td>
+    
   </tr>
-    <tr>
+    {{!-- <tr>
         <th colspan="6">Obtained (unit-test + half yearly): out of 600</th>
-    </tr>
+    </tr> --}}
     <tr class="dec2">
         <th colspan="3">Result : -</th>
         <th colspan="3">{{result.result_status}}</th>

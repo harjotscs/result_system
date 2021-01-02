@@ -113,6 +113,10 @@ h6,
   list-style: none;
 }
 
+.nav-menu a:hover {
+  color: #1eeb5b;
+}
+
 .nav-menu > ul > li {
   position: relative;
   white-space: nowrap;
