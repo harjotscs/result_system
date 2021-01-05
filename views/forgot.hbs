@@ -141,15 +141,13 @@
 <body>
     <div class="main">
         <p class="sign" align="center">Set Password</p>
-        <!-- {{#if message}}
-        <p align="center">{{message}}</p>
-        {{/if}} -->
-        <form action="/login" method="POST" id="login" class="form1">
+        <form action="/user/reset" method="POST" id="login" class="form1">
             <input class="un " type="password" align="center" name="pass" placeholder="New Password">
             <input class="pass" type="password" name="password" align="center" placeholder="Confirm Password">
             <input type="hidden" value="{{csrfToken}}" name="_csrf">
+            <input type="hidden" value="{{user.token}}" name="token">
             <a class="submit" onclick="document.getElementById('login').submit()" align="center">Confirm</a>
-
+        </form>
     </div>
 
 

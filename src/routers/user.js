@@ -9,6 +9,7 @@ const User = require("../models/user");
 
 const { resetEmail } = require("../emails/account");
 const { auth, notauth, adminAuth } = require("../middleware/auth");
+const Payment = require("../models/payment");
 
 const router = express.Router();
 
@@ -21,7 +22,7 @@ router.get("/reset/:token", notauth, async (req, res) => {
       message: "INVALID ATTEMPT",
     });
   } else {
-    res.render("reset", {
+    res.render("forgot", {
       user,
       csrfToken: req.csrfToken(),
     });
@@ -145,9 +146,30 @@ router.post(
   }
 );
 
-router.get("/admin/dashboard", (req, res) => {
+router.get("/admin/dashboard", adminAuth, async (req, res) => {
   try {
-    res.send("Hi Admin");
+    // const payments = await Payment.aggregate([
+    //   {
+    //     $lookup: {
+    //       from: "user",
+    //       localField: "paidBy",
+    //       foreignField: "_id",
+    //       as: "user",
+    //     },
+    //   },
+    // ]);
+
+    let paymentsArray = await Payment.find({}).limit(10).sort({ _id: -1 });
+    let payments = [];
+    for (let payment of paymentsArray) {
+      const user = await User.findOne({ _id: payment.paidBy });
+      payment.paidBy = user;
+      payments.push(payment);
+    }
+    console.log(payments);
+    res.render("dashboard", {
+      payments,
+    });
   } catch (e) {
     console.log(e);
   }
@@ -161,12 +183,11 @@ router.post("/user/forgot", notauth, async (req, res) => {
     if (!user) {
       req.flash("message", `No User Associated With ${req.body.email}`);
       req.session.save();
-      console.log(req.flash());
       res.redirect("/user/forgot");
     } else {
       const token = shortid.generate();
       await User.findByIdAndUpdate({ _id: user._id }, { token });
-      resetEmail(user.email, user.name, token);
+      resetEmail(user.email, user.schoolName, token);
       res.render("verification", {
         pageTitle: "Forgot Password",
         message: "Please Check Your E-mail For Further Details",
@@ -180,10 +201,11 @@ router.post("/user/forgot", notauth, async (req, res) => {
 });
 
 router.get("/user/forgot", notauth, async (req, res) => {
-  console.log(req.flash("message"));
+  const message = req.flash("message");
+  console.log(message);
   res.render("login", {
     csrfToken: req.csrfToken(),
-    message: req.flash("message")[0],
+    message: message[0],
   });
 });
 

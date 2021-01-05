@@ -9,12 +9,22 @@ const paymentSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  paidOn: {
+    type: Date,
+    default: new Date(),
+  },
   paidBy: {
     type: mongoose.Schema.Types.ObjectId,
     required: true,
     ref: "User",
   },
 });
+
+// paymentSchema.virtual("User", {
+//   ref: "User",
+//   localField: "paidBy",
+//   foreignField: "_id",
+// });
 
 const Payment = mongoose.model("Payment", paymentSchema);
 

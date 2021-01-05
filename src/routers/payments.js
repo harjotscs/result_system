@@ -21,9 +21,9 @@ router.get("/charges/add", adminAuth, async (req, res) => {
 });
 
 router.get("/invoice/generate", auth, async (req, res) => {
-  if (req.user.bill < 1 || req.user.bill === undefined) {
-    return res.send("You Don't Have Any Pending Bill");
-  }
+  // if (req.user.bill < 1 || req.user.bill === undefined) {
+  //   return res.send("You Don't Have Any Pending Bill");
+  // }
   res.render("invoice", {
     user: req.user,
   });

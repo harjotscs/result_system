@@ -61,12 +61,6 @@ const userSchema = new mongoose.Schema({
   },
 });
 
-userSchema.virtual("payment", {
-  ref: "payment",
-  localField: "_id",
-  foreignField: "paidBy",
-});
-
 //Hashing before saving
 userSchema.pre("save", async function (next) {
   const user = this;
