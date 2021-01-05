@@ -30,7 +30,7 @@ router.post("/result", async (req, res) => {
     });
   } catch (e) {
     console.log(e);
-    res.render("404", {
+    res.status(404).render("404", {
       message: e,
     });
     // res.send("Something Went Wrong <br>" + e);
