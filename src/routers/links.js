@@ -8,6 +8,7 @@ router.get("/", async (req, res) => {
   try {
     res.render("index", {
       csrfToken: req.csrfToken(),
+      user: req.user,
     });
   } catch (e) {
     console.log(e);
