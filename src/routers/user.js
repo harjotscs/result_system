@@ -56,12 +56,12 @@ router.get("/user/me", auth, async (req, res) => {
   res.redirect("/invoice/generate");
 });
 
-router.get("/signup", notauth, async (req, res) => {
-  res.render("signup", {
-    csrfToken: req.csrfToken(),
-    info: req.flash("info"),
-  });
-});
+// router.get("/signup", notauth, async (req, res) => {
+//   res.render("signup", {
+//     csrfToken: req.csrfToken(),
+//     info: req.flash("info"),
+//   });
+// });
 
 router.get("/login", notauth, (req, res) => {
   try {
@@ -99,33 +99,33 @@ router.get("/logout", auth, (req, res) => {
   res.redirect("/login");
 });
 
-router.post("/signup", async (req, res) => {
-  try {
-    const userCount = await User.countDocuments();
-    const user = new User(req.body);
+// router.post("/signup", async (req, res) => {
+//   try {
+//     const userCount = await User.countDocuments();
+//     const user = new User(req.body);
 
-    if (userCount === 0) {
-      user.isAdmin = true;
-    } else {
-      user.isAdmin = undefined;
-    }
-    user.isVerified = true;
-    await user.save();
+//     if (userCount === 0) {
+//       user.isAdmin = true;
+//     } else {
+//       user.isAdmin = undefined;
+//     }
+//     user.isVerified = true;
+//     await user.save();
 
-    res.render("signup", {
-      info: "User Added",
-      csrfToken: req.csrfToken(),
-    });
-  } catch (e) {
-    console.log(e);
-    if (e.code === 11000) {
-      req.flash("info", "Email Already Associated With Another Account");
-      return res.redirect(`/signup`);
-    }
-    req.flash("info", "Something Went Wrong");
-    res.redirect(`/signup`);
-  }
-});
+//     res.render("signup", {
+//       info: "User Added",
+//       csrfToken: req.csrfToken(),
+//     });
+//   } catch (e) {
+//     console.log(e);
+//     if (e.code === 11000) {
+//       req.flash("info", "Email Already Associated With Another Account");
+//       return res.redirect(`/signup`);
+//     }
+//     req.flash("info", "Something Went Wrong");
+//     res.redirect(`/signup`);
+//   }
+// });
 
 router.post(
   "/login",
