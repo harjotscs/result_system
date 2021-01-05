@@ -30,13 +30,13 @@ hbs.registerPartials(partialsDirectoryPath);
 app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
 app.use(bodyParser.json({ limit: "50mb" }));
 app.use(
-  session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false,
-    store: new MongoStore({ mongooseConnection: mongoose.connection }),
-    cookie: { maxAge: 180 * 60 * 1000 },
-  })
+    session({
+        secret: process.env.SESSION_SECRET,
+        resave: false,
+        saveUninitialized: false,
+        store: new MongoStore({ mongooseConnection: mongoose.connection }),
+        cookie: { maxAge: 180 * 60 * 1000 },
+    })
 );
 app.use(passport.initialize());
 app.use(passport.session());
@@ -46,8 +46,8 @@ app.use(csrfProtection);
 
 app.use(express.static(publicDirectoryPath));
 app.use((req, res, next) => {
-  res.locals.session = req.session;
-  next();
+    res.locals.session = req.session;
+    next();
 });
 app.use(flash());
 
@@ -61,10 +61,13 @@ const port = process.env.PORT;
 
 hbs.registerHelper("expand", expand);
 
+app.get("/test", (req, res) => {
+    res.render('forgot');
+})
 app.get("*", (req, res) => {
-  res.render("404");
+    res.render("404");
 });
 
 app.listen(port, () => {
-  console.log(`Server Up and runing on Port: ${port}`);
+    console.log(`Server Up and runing on Port: ${port}`);
 });
