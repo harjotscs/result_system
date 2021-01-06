@@ -7,6 +7,7 @@ const mongoose = require("mongoose");
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 const flash = require("connect-flash");
+const compression = require("compression");
 
 const csrf = require("csurf");
 
@@ -27,6 +28,7 @@ const app = express();
 
 hbs.registerPartials(partialsDirectoryPath);
 
+app.use(compression());
 app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
 app.use(bodyParser.json({ limit: "50mb" }));
 app.use(
