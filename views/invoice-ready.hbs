@@ -113,14 +113,14 @@
         background-color:#DC5113;
         color:white;
     }
-    button{
+    .butto{
         color:white;
         border: 2px solid #DC5113;
         background-color:#DC5113;
         padding:5px 20px;
         border-radius:20px;
     }
-    button:hover{
+    .butto:hover{
         background-color:white;
         color:black;
     }
@@ -235,7 +235,7 @@
                 <td></td>
                 
                 <td>
-                   <button id="rzp-button1">Pay Now</button><script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+                   <button class="butto" id="rzp-button1">Pay</button><script src="https://checkout.razorpay.com/v1/checkout.js"></script>
                                   <script>var options = {    
                                         "key": "rzp_test_C6dbuYmIVuIDFB", // Enter the Key ID generated from the Dashboard
                                         "amount": "{{charges}}", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise    
@@ -288,6 +288,6 @@
         bill.innerHTML=bill.innerHTML/100;
         dueAmount.innerHTML=bill.innerHTML-amount.innerHTML
     </script>
-        <script src="assets/js/main.js"></script>
+        <script src="/assets/js/main.js"></script>
 </body>
 </html>
