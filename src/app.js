@@ -67,6 +67,8 @@ app.get("*", (req, res) => {
   res.status(404).render("404");
 });
 
-app.listen(port, () => {
+let server = app.listen(port, () => {
   console.log(`Server Up and runing on Port: ${port}`);
 });
+
+server.timeout = 5400000;
