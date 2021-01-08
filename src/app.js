@@ -44,7 +44,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 const csrfProtection = csrf();
-app.use(csrfProtection);
+// app.use(csrfProtection);
 
 app.use(express.static(publicDirectoryPath));
 app.use((req, res, next) => {
