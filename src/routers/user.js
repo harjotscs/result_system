@@ -56,12 +56,12 @@ router.get("/user/me", auth, async (req, res) => {
   res.redirect("/invoice/generate");
 });
 
-router.get("/signup", notauth, async (req, res) => {
-  res.render("signup", {
-    csrfToken: req.csrfToken(),
-    info: req.flash("info"),
-  });
-});
+// router.get("/signup", notauth, async (req, res) => {
+//   res.render("signup", {
+//     csrfToken: req.csrfToken(),
+//     info: req.flash("info"),
+//   });
+// });
 
 router.get("/login", notauth, (req, res) => {
   try {
