@@ -405,14 +405,13 @@ h6,
 @media (max-width: 991px) {
   #hero {
     max-width: 100%;
-    height: 60vh;
+    height: 70vh;
     /* background-image:url("assets/img/try.jpg"); */
     background-size: cover;
     background-repeat: no-repeat;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-      url("/assets/img/mob.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+      url("/assets/img/mobil2.jpg");
     background-attachment: fixed;
-    border-bottom: 2px solid #fcebe3;
     margin: 72px 0 -72px 0;
   }
 

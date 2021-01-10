@@ -71,6 +71,7 @@ router.get("/login", notauth, (req, res) => {
       message,
     });
   } catch (e) {
+    console.log(e);
     res.send("something went wrong");
   }
 });
