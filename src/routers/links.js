@@ -7,7 +7,7 @@ const router = express.Router();
 router.get("/", async (req, res) => {
   try {
     res.render("index", {
-      // csrfToken: req.csrfToken(),
+      csrfToken: req.csrfToken(),
       user: req.user,
     });
   } catch (e) {
